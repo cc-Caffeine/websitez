@@ -19,5 +19,14 @@ const pageTitle = "Home Page";
         <h1>My Astro Side</h1>
         <p>现在正在施工中...</p>
         <Footer />
+
+<script>
+    const menu = document.querySelector('.menu');
+
+    menu?.addEventListener('click', () => {
+        const isExpanded = menu.getAttribute('aria-expanded') === 'true';
+        menu.setAttribute('aria-expanded', `${!isExpanded}`);
+    });
+</script>
     </body>
 </html>
