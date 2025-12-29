@@ -1,32 +1,9 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const skillColor = "crimson";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-<style define:vars="{{skillColor, fontWeight, textCase}}">
-    h1 {
-        color: purple;
-        font-size: 4rem;
-    }
+<style is:global define:vars="{{skillColor, fontWeight, textCase}}">
     .skill {
         color: var(--skillColor);
         font-weight: var(--fontWeight);
@@ -34,18 +11,12 @@ const textCase = "uppercase";
     }
 
 </style>
-    </head>
-    <body>
-        <Header />
-        <h1>{pageTitle}</h1>
+    <BaseLayout pageTitle={pageTitle}>
         <h2>... and my new Astro site!</h2>
 
         <p>这是一个神秘的自我介绍，但是它现在正在施工...</p>
         <ul>
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
-        <Footer />
-    </body>
-
-</html>
+    </BaseLayout>
 
