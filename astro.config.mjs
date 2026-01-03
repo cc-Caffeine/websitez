@@ -5,13 +5,15 @@ import sitemap from "@astrojs/sitemap";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
-	site: "https://formatiation.top",
-	integrations: [mdx(), sitemap()],
-	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
-	}),
+    site: "https://formatiation.top",
+    integrations: [mdx(), sitemap(), preact()],
+    adapter: cloudflare({
+        platformProxy: {
+            enabled: true,
+        },
+    }),
 });
